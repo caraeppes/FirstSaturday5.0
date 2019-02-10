@@ -2,8 +2,8 @@
 /**
  * Write a description of class WriteIFs here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Cara Eppes
+ * @version 2/10/19
  */
 public class WriteIFs
 {
@@ -11,6 +11,9 @@ public class WriteIFs
     public void playerDied(boolean player1) {
         // Write an IF statement that checks “player1.isAlive()” 
         // and if that’s false, calls “displayGameOver(player1)”
+         if(!isAlive(player1)){
+            displayGameOver(player1);
+        }
      
     }
     
@@ -18,9 +21,12 @@ public class WriteIFs
         // Write an IF statement that checks the 
         // “temperature(room)” and if that check is less than 70, 
         // calls “heatOn()” else calls “coolOn()”
-
-
-        
+        if(tempurature(room) < 70){
+            heatOn();
+        }
+        else{
+            coolOn();
+        }
         return this.ss;
     }
 
@@ -40,21 +46,19 @@ public class WriteIFs
     }
 
 
-    
+   int x;
+   int tt_t;
+   int tt_s;
+   int oo1, oo2;
+   String ss;
     /**
      *  Pay no attention to the code below this point.
      * 
      * 
      * instance variables
      * / 
-   int x;
-   int tt_t;
-   int tt_s;
-   int oo1, oo2;
-   String ss;
-
-
-  /**
+      
+   * /**
    * Constructor for objects of class WriteIFs
    */
   public WriteIFs()
