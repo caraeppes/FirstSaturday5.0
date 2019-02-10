@@ -171,10 +171,15 @@ public class WriteLoops {
         int w = 0;
         String adminPhoneNumber = "+1 202 456 1111";
 
-        // calling
-        w = w + 1;
-        // each time through the inner loop
-
+        while (serverIsRunning()){
+            waitFor(5);
+            w = w + 1;
+        }
+        if (!serverIsRunning()){
+            sendEmergencyText("Help!", adminPhoneNumber);
+            tryServerRestart("restart", adminPhoneNumber);
+        }
+        
         return w;
     }
 
@@ -183,11 +188,12 @@ public class WriteLoops {
     // and if it is, add 7 to “i”
     public int loop50by7() {
         int w = 0;
-
-        // calling
-        w = w + 1;
-        // each time through the inner loop
-
+        int i = 7;
+        
+        while (i < 50){
+            i += 7;
+            w = w + 1;
+        }
         return w;
     }
 
@@ -202,7 +208,7 @@ public class WriteLoops {
 
         // this is a so called Enhanced for loop
         for (int index : threes_array) {
-            sumOfThrees = sumOfThrees + threes_array[index];
+            sumOfThrees = sumOfThrees + index;
             // calling
             w = w + 1;
             // each time through the inner loop
@@ -219,11 +225,12 @@ public class WriteLoops {
     public int rewriteFooAsFor() {
         int w = 0;
         int sumOfThrees = 0;
-
-        // calling
-        w = w + 1;
-        // each time through the inner loop
-
+        
+        for (int i = 0; i < 7; i++){
+            sumOfThrees = sumOfThrees + threes_array[i];
+            w = w + 1;
+        }
+        
         System.out.print("The Sum is ");
         System.out.println(sumOfThrees);
 
@@ -235,11 +242,11 @@ public class WriteLoops {
     public int rewriteFooAsWhile() {
         int w = 0;
         int sumOfThrees = 0;
-
-        // calling
-        w = w + 1;
-        // each time through the inner loop
-
+        
+        while (w < 7) {
+            sumOfThrees = sumOfThrees + threes_array[w];
+            w = w + 1;
+        }
         System.out.print("The Sum is ");
         System.out.println(sumOfThrees);
 
@@ -256,12 +263,15 @@ public class WriteLoops {
     public int manageYardAndJunior() {
         int w = 0;
         boolean onTime = true;
-
-        // ADD YOUR CODE here.
-
-        // be sure to call
-        w = w + 1;
-        // each time inside the loop
+        boolean yardNeedsMowed = true;
+        
+        while (isSummer()){
+            if (yardNeedsMowed){
+                yellAtJuniorToMowLawn();
+            }
+            w = w + 1;
+        }
+        sendJuniorBackToSchool("first day of school");
 
         return w;
     }
@@ -274,11 +284,11 @@ public class WriteLoops {
     public int tallyVote1() {
         int w = 0;
         int numberOfVotes = voteTallies.length;
-
-        // calling
-        w = w + 1;
-        // each time through the inner loop
-
+        
+        for (int i = 0; i < numberOfVotes; i++){
+            System.out.println(voteTallies[i]);
+            w = w + 1;
+        }
         return w;
     }
 
@@ -288,11 +298,12 @@ public class WriteLoops {
     public int tallyVote2() {
         int w = 0;
         int numberOfVotes = voteTallies.length;
+        int i = 0;
 
-        // calling
-        w = w + 1;
-        // each time through the inner loop
-
+        while (i < numberOfVotes){
+            System.out.println(voteTallies[i]);
+            w = w + 1;
+        }
         return w;
     }
 
